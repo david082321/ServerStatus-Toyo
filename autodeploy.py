@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 # Author : https://github.com/tenyue/ServerStatus
-# ServerStatus 自动部署脚本
+# ServerStatus 自動部署腳本
 import os
 import sys
 import json
 import datetime
 import hashlib
 
-# 全新部署服务端_客户端
+# 全新部署服務端_用戶端
 def NewDeploy():
     os.system('yum -y install expect')
     os.system('apt-get -y install expect')
@@ -56,10 +56,10 @@ def NewDeploy():
         config_list.append(xjson)
 
         new_config_str = ''
-        # 配置服务端
+        # 配置服務端
         mvcomment = 'mv web/* %s' % webdir
         os.system(mvcomment)
-        # 读取客户端配置
+        # 讀取用戶端配置
         with open('client/client.py','r') as f:
             for line in f.readlines():
                 if 'SERVER = "127.0.0.1"' in line:
@@ -70,12 +70,12 @@ def NewDeploy():
                     new_config_str = new_config_str + ('PASSWORD = "%s"') % hash_passwd + '\n'
                 else:
                     new_config_str = new_config_str + line
-        # 写入临时客户端配置
+        # 寫入臨時用戶端配置
         with open('client/client-temp.py','wt') as f:
             f.write(new_config_str)
-        # 上传配置到客户机,并执行脚本
+        # 上傳配置到客戶機,並執行腳本
         scp_put('client/client-temp.py', '/root/', client_ipstr, rootstr, passwdstr)
-        # 清理临时客户端配置
+        # 清理臨時用戶端配置
         os.remove('client/client-temp.py')
         is_add = raw_input('Whether to continue to add the client(y/n): ')
         if is_add == 'n' or is_add == 'N' or is_add == 'not' or is_add == 'NOT':
@@ -85,7 +85,7 @@ def NewDeploy():
     with open('config.json','wt') as f:
         f.write(config_json)
 
-    # 启动主服务
+    # 啟動主服務
     os.chdir('server')
     os.system('make')
     os.chdir('..')
@@ -93,14 +93,14 @@ def NewDeploy():
         os.system('mv server/sergate %s' % webdir)
         os.system('mv config.json %s' % webdir)
         task_sergate = 'nohup %s/sergate --config=%s/config.json --web-dir=%s &> /dev/null &' % (webdir, webdir, webdir)
-        # 立即启动服务
+        # 立即啟動服務
         os.system(task_sergate)
         print 'Successed start CloudMonitor!'
     else:
         print 'Failed start CloudMonitor!'
 
 
-# 增加客户端
+# 增加用戶端
 def AddClient():
     while True:
         print 'Please input the website path for CloudMonitor(Eg: /home/wwwroot/default):'
@@ -150,7 +150,7 @@ def AddClient():
         old_config["servers"].append(xjson)
 
         new_config_str = ''
-        # 读取客户端配置
+        # 讀取用戶端配置
         with open('client/client.py', 'r') as f:
             for line in f.readlines():
                 if 'SERVER = "127.0.0.1"' in line:
@@ -161,12 +161,12 @@ def AddClient():
                     new_config_str = new_config_str + ('PASSWORD = "%s"') % hash_passwd + '\n'
                 else:
                     new_config_str = new_config_str + line
-        # 写入临时客户端配置
+        # 寫入臨時用戶端配置
         with open('client/client-temp.py', 'wt') as f:
             f.write(new_config_str)
-        # 上传配置到客户机,并执行脚本
+        # 上傳配置到客戶機,並執行腳本
         scp_put('client/client-temp.py', '/root/', client_ipstr, rootstr, passwdstr)
-        # 清理临时客户端配置
+        # 清理臨時用戶端配置
         os.remove('client/client-temp.py')
         is_add = raw_input('Whether to continue to add the client(y/n): ')
         if is_add == 'n' or is_add == 'N' or is_add == 'not' or is_add == 'NOT':
