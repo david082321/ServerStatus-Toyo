@@ -5,7 +5,7 @@ var server_status = new Array();
 
 function timeSince(date) {
 	if(date == 0)
-		return "从未.";
+		return "從未.";
 
 	var seconds = Math.floor((new Date() - date) / 1000);
 	var interval = Math.floor(seconds / 31536000);
@@ -20,14 +20,14 @@ function timeSince(date) {
 		return interval + " 日前.";
 	interval = Math.floor(seconds / 3600);
 	if (interval > 1)
-		return interval + " 小时前.";
+		return interval + " 小時前.";
 	interval = Math.floor(seconds / 60);
 	if (interval > 1)
-		return interval + " 分钟前.";
+		return interval + " 分鐘前.";
 	/*if(Math.floor(seconds) >= 5)
 		return Math.floor(seconds) + " seconds";*/
 	else
-		return "几秒前.";
+		return "幾秒前.";
 }
 
 function bytesToSize(bytes, precision, si)
@@ -85,24 +85,24 @@ function uptime() {
 			if (!TableRow.length) {
 				$("#servers").append(
 					"<tr id=\"r" + i + "\" data-toggle=\"collapse\" data-target=\"#rt" + i + "\" class=\"accordion-toggle " + hack + "\">" +
-						"<td id=\"online4\"><div class=\"progress\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-warning\"><small>加载中</small></div></div></td>" +
-						"<td id=\"name\">加载中</td>" +
-						"<td id=\"type\">加载中</td>" +
-						"<!-- td id=\"host\">加载中</td -->" +
-						"<td id=\"location\">加载中</td>" +
-						"<td id=\"uptime\">加载中</td>" +
-						"<td id=\"load\">加载中</td>" +
-						"<td id=\"network\">加载中</td>" +
-						"<td id=\"traffic\">加载中</td>" +
-						"<td id=\"cpu\"><div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-warning\"><small>加载中</small></div></div></td>" +
-						"<td id=\"memory\"><div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-warning\"><small>加载中</small></div></div></td>" +
-						"<td id=\"hdd\"><div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-warning\"><small>加载中</small></div></div></td>" +
+						"<td id=\"online4\"><div class=\"progress\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-warning\"><small>載入中</small></div></div></td>" +
+						"<td id=\"name\">載入中</td>" +
+						"<td id=\"type\">載入中</td>" +
+						"<!-- td id=\"host\">載入中</td -->" +
+						"<td id=\"location\">載入中</td>" +
+						"<td id=\"uptime\">載入中</td>" +
+						"<td id=\"load\">載入中</td>" +
+						"<td id=\"network\">載入中</td>" +
+						"<td id=\"traffic\">載入中</td>" +
+						"<td id=\"cpu\"><div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-warning\"><small>載入中</small></div></div></td>" +
+						"<td id=\"memory\"><div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-warning\"><small>載入中</small></div></div></td>" +
+						"<td id=\"hdd\"><div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-warning\"><small>載入中</small></div></div></td>" +
 					"</tr>" +
 					"<tr class=\"expandRow " + hack + "\"><td colspan=\"12\"><div class=\"accordian-body collapse\" id=\"rt" + i + "\">" +
-						"<div id=\"expand_mem\">加载中</div>" +
-						"<div id=\"expand_swap\">加载中</div>" +
-						"<div id=\"expand_hdd\">加载中</div>" +
-						"<div id=\"expand_custom\">加载中</div>" +
+						"<div id=\"expand_mem\">載入中</div>" +
+						"<div id=\"expand_swap\">載入中</div>" +
+						"<div id=\"expand_hdd\">載入中</div>" +
+						"<div id=\"expand_custom\">載入中</div>" +
 					"</div></td></tr>"
 				);
 				TableRow = $("#servers tr#r" + i);
@@ -118,19 +118,19 @@ function uptime() {
 			// Online4
 			if (result.servers[i].online4) {
 				TableRow.children["online4"].children[0].children[0].className = "progress-bar progress-bar-success";
-				TableRow.children["online4"].children[0].children[0].innerHTML = "<small>开启</small>";
+				TableRow.children["online4"].children[0].children[0].innerHTML = "<small>開啟</small>";
 			} else {
 				TableRow.children["online4"].children[0].children[0].className = "progress-bar progress-bar-danger";
-				TableRow.children["online4"].children[0].children[0].innerHTML = "<small>关闭</small>";
+				TableRow.children["online4"].children[0].children[0].innerHTML = "<small>關閉</small>";
 			}
 
 			// Online6
 			//if (result.servers[i].online6) {
 			//	TableRow.children["online6"].children[0].children[0].className = "progress-bar progress-bar-success";
-			//	TableRow.children["online6"].children[0].children[0].innerHTML = "<small>开启</small>";
+			//	TableRow.children["online6"].children[0].children[0].innerHTML = "<small>開啟</small>";
 			//} else {
 			//	TableRow.children["online6"].children[0].children[0].className = "progress-bar progress-bar-danger";
-			//	TableRow.children["online6"].children[0].children[0].innerHTML = "<small>关闭</small>";
+			//	TableRow.children["online6"].children[0].children[0].innerHTML = "<small>關閉</small>";
 			//}
 
 			// Name
@@ -152,13 +152,13 @@ function uptime() {
 					TableRow.children["traffic"].innerHTML = "–";
 					TableRow.children["cpu"].children[0].children[0].className = "progress-bar progress-bar-danger";
 					TableRow.children["cpu"].children[0].children[0].style.width = "100%";
-					TableRow.children["cpu"].children[0].children[0].innerHTML = "<small>关闭</small>";
+					TableRow.children["cpu"].children[0].children[0].innerHTML = "<small>關閉</small>";
 					TableRow.children["memory"].children[0].children[0].className = "progress-bar progress-bar-danger";
 					TableRow.children["memory"].children[0].children[0].style.width = "100%";
-					TableRow.children["memory"].children[0].children[0].innerHTML = "<small>关闭</small>";
+					TableRow.children["memory"].children[0].children[0].innerHTML = "<small>關閉</small>";
 					TableRow.children["hdd"].children[0].children[0].className = "progress-bar progress-bar-danger";
 					TableRow.children["hdd"].children[0].children[0].style.width = "100%";
-					TableRow.children["hdd"].children[0].children[0].innerHTML = "<small>关闭</small>";
+					TableRow.children["hdd"].children[0].children[0].innerHTML = "<small>關閉</small>";
 					if(ExpandRow.hasClass("in")) {
 						ExpandRow.collapse("hide");
 					}
@@ -243,9 +243,9 @@ function uptime() {
 					TableRow.children["memory"].children[0].children[0].className = "progress-bar progress-bar-success";
 				TableRow.children["memory"].children[0].children[0].style.width = Mem + "%";
 				TableRow.children["memory"].children[0].children[0].innerHTML = Mem + "%";
-				ExpandRow[0].children["expand_mem"].innerHTML = "内存信息: " + bytesToSize(result.servers[i].memory_used*1024, 2) + " / " + bytesToSize(result.servers[i].memory_total*1024, 2);
+				ExpandRow[0].children["expand_mem"].innerHTML = "記憶體訊息: " + bytesToSize(result.servers[i].memory_used*1024, 2) + " / " + bytesToSize(result.servers[i].memory_total*1024, 2);
 				// Swap
-				ExpandRow[0].children["expand_swap"].innerHTML = "交换分区: " + bytesToSize(result.servers[i].swap_used*1024, 2) + " / " + bytesToSize(result.servers[i].swap_total*1024, 2);
+				ExpandRow[0].children["expand_swap"].innerHTML = "交換分區: " + bytesToSize(result.servers[i].swap_used*1024, 2) + " / " + bytesToSize(result.servers[i].swap_total*1024, 2);
 
 				// HDD
 				var HDD = ((result.servers[i].hdd_used/result.servers[i].hdd_total)*100.0).toFixed(0);
@@ -257,7 +257,7 @@ function uptime() {
 					TableRow.children["hdd"].children[0].children[0].className = "progress-bar progress-bar-success";
 				TableRow.children["hdd"].children[0].children[0].style.width = HDD + "%";
 				TableRow.children["hdd"].children[0].children[0].innerHTML = HDD + "%";
-				ExpandRow[0].children["expand_hdd"].innerHTML = "硬盘信息: " + bytesToSize(result.servers[i].hdd_used*1024*1024, 2) + " / " + bytesToSize(result.servers[i].hdd_total*1024*1024, 2);
+				ExpandRow[0].children["expand_hdd"].innerHTML = "硬碟訊息: " + bytesToSize(result.servers[i].hdd_used*1024*1024, 2) + " / " + bytesToSize(result.servers[i].hdd_total*1024*1024, 2);
 
 				// Custom
 				if (result.servers[i].custom) {
@@ -276,22 +276,22 @@ function uptime() {
 				var TableRow = $("#servers tr#r" + i)[0];
 				var ExpandRow = $("#servers #rt" + i);
 				TableRow.children["online4"].children[0].children[0].className = "progress-bar progress-bar-error";
-				TableRow.children["online4"].children[0].children[0].innerHTML = "<small>错误</small>";
+				TableRow.children["online4"].children[0].children[0].innerHTML = "<small>錯誤</small>";
 				//TableRow.children["online6"].children[0].children[0].className = "progress-bar progress-bar-error";
-				//TableRow.children["online6"].children[0].children[0].innerHTML = "<small>错误</small>";
-				TableRow.children["uptime"].innerHTML = "<div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-error\"><small>错误</small></div></div>";
-				TableRow.children["load"].innerHTML = "<div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-error\"><small>错误</small></div></div>";
-				TableRow.children["network"].innerHTML = "<div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-error\"><small>错误</small></div></div>";
-				TableRow.children["traffic"].innerHTML = "<div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-error\"><small>错误</small></div></div>";
+				//TableRow.children["online6"].children[0].children[0].innerHTML = "<small>錯誤</small>";
+				TableRow.children["uptime"].innerHTML = "<div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-error\"><small>錯誤</small></div></div>";
+				TableRow.children["load"].innerHTML = "<div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-error\"><small>錯誤</small></div></div>";
+				TableRow.children["network"].innerHTML = "<div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-error\"><small>錯誤</small></div></div>";
+				TableRow.children["traffic"].innerHTML = "<div class=\"progress progress-striped active\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-error\"><small>錯誤</small></div></div>";
 				TableRow.children["cpu"].children[0].children[0].className = "progress-bar progress-bar-error";
 				TableRow.children["cpu"].children[0].children[0].style.width = "100%";
-				TableRow.children["cpu"].children[0].children[0].innerHTML = "<small>错误</small>";
+				TableRow.children["cpu"].children[0].children[0].innerHTML = "<small>錯誤</small>";
 				TableRow.children["memory"].children[0].children[0].className = "progress-bar progress-bar-error";
 				TableRow.children["memory"].children[0].children[0].style.width = "100%";
-				TableRow.children["memory"].children[0].children[0].innerHTML = "<small>错误</small>";
+				TableRow.children["memory"].children[0].children[0].innerHTML = "<small>錯誤</small>";
 				TableRow.children["hdd"].children[0].children[0].className = "progress-bar progress-bar-error";
 				TableRow.children["hdd"].children[0].children[0].style.width = "100%";
-				TableRow.children["hdd"].children[0].children[0].innerHTML = "<small>错误</small>";
+				TableRow.children["hdd"].children[0].children[0].innerHTML = "<small>錯誤</small>";
 				if(ExpandRow.hasClass("in")) {
 					ExpandRow.collapse("hide");
 				}
@@ -300,13 +300,13 @@ function uptime() {
 			});
 		}
 		error = 1;
-		$("#updated").html("更新错误.");
+		$("#updated").html("更新錯誤.");
 	});
 }
 
 function updateTime() {
 	if (!error)
-		$("#updated").html("最后更新: " + timeSince(d));
+		$("#updated").html("最後更新: " + timeSince(d));
 }
 
 uptime();
