@@ -7,7 +7,7 @@ import json
 import datetime
 import hashlib
 
-# 全新部署服務端_用戶端
+# 全新部署服務端_使用者端
 def NewDeploy():
     os.system('yum -y install expect')
     os.system('apt-get -y install expect')
@@ -56,10 +56,10 @@ def NewDeploy():
         config_list.append(xjson)
 
         new_config_str = ''
-        # 配置服務端
+        # 設定服務端
         mvcomment = 'mv web/* %s' % webdir
         os.system(mvcomment)
-        # 讀取用戶端配置
+        # 讀取使用者端設定
         with open('client/client.py','r') as f:
             for line in f.readlines():
                 if 'SERVER = "127.0.0.1"' in line:
@@ -70,12 +70,12 @@ def NewDeploy():
                     new_config_str = new_config_str + ('PASSWORD = "%s"') % hash_passwd + '\n'
                 else:
                     new_config_str = new_config_str + line
-        # 寫入臨時用戶端配置
+        # 寫入臨時使用者端設定
         with open('client/client-temp.py','wt') as f:
             f.write(new_config_str)
-        # 上傳配置到客戶機,並執行腳本
+        # 上傳設定到客戶機,並執行腳本
         scp_put('client/client-temp.py', '/root/', client_ipstr, rootstr, passwdstr)
-        # 清理臨時用戶端配置
+        # 清理臨時使用者端設定
         os.remove('client/client-temp.py')
         is_add = raw_input('Whether to continue to add the client(y/n): ')
         if is_add == 'n' or is_add == 'N' or is_add == 'not' or is_add == 'NOT':
@@ -100,7 +100,7 @@ def NewDeploy():
         print 'Failed start CloudMonitor!'
 
 
-# 增加用戶端
+# 增加使用者端
 def AddClient():
     while True:
         print 'Please input the website path for CloudMonitor(Eg: /home/wwwroot/default):'
@@ -150,7 +150,7 @@ def AddClient():
         old_config["servers"].append(xjson)
 
         new_config_str = ''
-        # 讀取用戶端配置
+        # 讀取使用者端設定
         with open('client/client.py', 'r') as f:
             for line in f.readlines():
                 if 'SERVER = "127.0.0.1"' in line:
@@ -161,12 +161,12 @@ def AddClient():
                     new_config_str = new_config_str + ('PASSWORD = "%s"') % hash_passwd + '\n'
                 else:
                     new_config_str = new_config_str + line
-        # 寫入臨時用戶端配置
+        # 寫入臨時使用者端設定
         with open('client/client-temp.py', 'wt') as f:
             f.write(new_config_str)
-        # 上傳配置到客戶機,並執行腳本
+        # 上傳設定到客戶機,並執行腳本
         scp_put('client/client-temp.py', '/root/', client_ipstr, rootstr, passwdstr)
-        # 清理臨時用戶端配置
+        # 清理臨時使用者端設定
         os.remove('client/client-temp.py')
         is_add = raw_input('Whether to continue to add the client(y/n): ')
         if is_add == 'n' or is_add == 'N' or is_add == 'not' or is_add == 'NOT':

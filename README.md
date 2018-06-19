@@ -1,155 +1,155 @@
 # ServerStatus-Toyo： 
 
-* ServerStatus-Toyo版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~，该云监控（云探针）是ServerStatus（ https://github.com/tenyue/ServerStatus ）项目的优化/修改版。
-* 在线演示：https://tz.toyoo.pw    
-* 我的博客：https://doub.io/shell-jc3/
+* ServerStatus-Toyo版是一個酷炫高逼格的雲探針、雲監控、伺服器雲監控、多伺服器探針~，該雲監控（雲探針）是ServerStatus（ https://github.com/tenyue/ServerStatus ）項目的最佳化/修改版。
+* 線上示範：https://tz.toyoo.pw    
+* 我的部落格：https://doub.io/shell-jc3/
 
-# 目录介绍：
+# 目錄介紹：
 
-* clients  客户端文件
-* server   服务端文件
-* web      网站文件  
+* clients  使用者端檔案
+* server   服務端檔案
+* web      網站檔案  
 
-# 更新说明：
+# 更新說明：
 
-* 2017.10.12, 负载Load 优化，并且支持CentOS6系统
-* 2017.10.10, 修改负载 Load 的值为：当前服务器上链接SSR等软件的IP总数(只要软件监听IPv6那么就能统计，例如SSH)
-* 2017.04.30, 优化手机显示式样
-* 2017.04.29, 去除主机名设定
-* 2017.04.27, 增加一键部署脚本
+* 2017.10.12, 負載Load 最佳化，並且支援CentOS6系統
+* 2017.10.10, 修改負載 Load 的值為：目前伺服器上連結SSR等軟體的IP總數(只要軟體監聽IPv6那麼就能統計，例如SSH)
+* 2017.04.30, 最佳化手機顯示式樣
+* 2017.04.29, 去除主機名設定
+* 2017.04.27, 增加一鍵部署腳本
 
-# 安装教程：     
+# 安裝教學：     
 
-执行下面的代码下载并运行脚本。
+執行下面的程式碼下載並執行腳本。
 ``` bash
-wget -N --no-check-certificate https://softs.fun/Bash/status.sh && chmod +x status.sh
+wget -N --no-check-certificate https://softs.loan/Bash/status.sh && chmod +x status.sh
 
-# 如果上面这个脚本无法下载，尝试使用备用下载：
+# 如果上面這個腳本無法下載，嘗試使用備用下載：
 wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/status.sh && chmod +x status.sh
 ```
-下载脚本后，根据需要安装客户端或者服务端：
+下載腳本後，根據需要安裝使用者端或者服務端：
 ``` bash
-# 显示客户端管理菜单
+# 顯示使用者端管理選單
 bash status.sh c
  
-# 显示服务端管理菜单
+# 顯示服務端管理選單
 bash status.sh s
 ```
-运行脚本后会出现脚本操作菜单，选择并输入` 1 `就会开始安装。
+執行腳本後會出現腳本操作選單，選擇並輸入` 1 `就會開始安裝。
 
-一开始会提示你输入 网站服务器的域名和端口，如果没有域名可以直接回车代表使用` 本机IP:8888`
+一開始會提示你輸入 網站伺服器的域名和埠，如果沒有域名可以直接回車代表使用` 本機IP:8888`
 
-## 简单步骤：
+## 簡單步驟：
 
-首先安装服务端，安装过程中会提示：
+首先安裝服務端，安裝過程中會提示：
 
 ``` bash
-是否由脚本自动配置HTTP服务(服务端的在线监控网站)[Y/n]
+是否由腳本自動設定HTTP服務(服務端的線上監控網站)[Y/n]
  
-# 如果你不懂，那就直接回车，如果你想用其他的HTTP服务自己配置，那么请输入 n 并回车。
-# 注意，当你曾经安装过 服务端，同时没有卸载Caddy(HTTP服务)，那么重新安装服务端的时候，请输入 n 并回车。
+# 如果你不懂，那就直接回車，如果你想用其他的HTTP服務自己設定，那麼請輸入 n 並回車。
+# 注意，當你曾經安裝過 服務端，同時沒有移除Caddy(HTTP服務)，那麼重新安裝服務端的時候，請輸入 n 並回車。
 ```
 
-然后 添加或修改 初始示例的节点配置，注意用户名每个节点配置都不能重复，其他的参数都无所谓了。
+然後 添加或修改 初始範例的節點設定，注意使用者名稱每個節點設定都不能重複，其他的參數都無所謂了。
 
-然后安装客户端，根据提示填写 服务端的IP 和前面添加/修改 对应的 节点用户名和密码（用于和服务端验证），然后启动就好了，有问题请贴出 详细步骤+日志(如果有)联系我。
+然後安裝使用者端，根據提示填寫 服務端的IP 和前面添加/修改 對應的 節點使用者名稱和密碼（用於和服務端驗證），然後啟動就好了，有問題請貼出 詳細步驟+日誌(如果有)聯繫我。
 
-# 使用说明：
+# 使用說明：
 
-进入下载脚本的目录并运行脚本：
+進入下載腳本的目錄並執行腳本：
 
 ``` bash
-# 客户端管理菜单
+# 使用者端管理選單
 ./status.sh c
-# 服务端管理菜单
+# 服務端管理選單
 ./status.sh s
 ```
 
-然后选择你要执行的选项即可。
+然後選擇你要執行的選項即可。
 
 ``` bash
-ServerStatus 一键安装管理脚本 [vx.x.x]
+ServerStatus 一鍵安裝管理腳本 [vx.x.x]
 -- Toyo | doub.io/shell-jc3 --
  
-0. 升级脚本
+0. 升級腳本
 ————————————
-1. 安装 服务端
-2. 卸载 服务端
+1. 安裝 服務端
+2. 移除 服務端
 ————————————
-3. 启动 服务端
-4. 停止 服务端
-5. 重启 服务端
+3. 啟動 服務端
+4. 停止 服務端
+5. 重啟 服務端
 ————————————
-6. 设置 服务端配置
-7. 查看 服务端信息
-8. 查看 服务端日志
+6. 設定 服務端設定
+7. 查看 服務端訊息
+8. 查看 服務端日誌
 ————————————
-9. 切换为 客户端菜单
+9. 切換為 使用者端選單
  
-当前状态: 服务端 已安装 并 已启动
+目前狀態: 服務端 已安裝 並 已啟動
  
-请输入数字 [0-9]:
+請輸入數字 [0-9]:
 ```
 # 其他操作
 
-### 客户端：
+### 使用者端：
 
-启动：service status-client start
+啟動：service status-client start
 
 停止：service status-client stop
 
-重启：service status-client restart
+重啟：service status-client restart
 
-查看状态：service status-client status
+查看狀態：service status-client status
 
-### 服务端：
+### 服務端：
 
-启动：service status-server start
+啟動：service status-server start
 
 停止：service status-server stop
 
-重启：service status-server restart
+重啟：service status-server restart
 
-查看状态：service status-server status
+查看狀態：service status-server status
 
-### Caddy（HTTP服务）：
+### Caddy（HTTP服務）：
 
-启动：service caddy start
+啟動：service caddy start
 
 停止：service caddy stop
 
-重启：service caddy restart
+重啟：service caddy restart
 
-查看状态：service caddy status
+查看狀態：service caddy status
 
-Caddy配置文件：/usr/local/caddy/caddy
+Caddy設定檔案：/usr/local/caddy/caddy
 
-默认脚本只能一开始安装的时候设置配置文件，更多的Caddy使用方法，可以参考这些教程：https://doub.io/search/caddy
+預設腳本只能一開始安裝的時候設定設定檔案，更多的Caddy使用方法，可以參考這些教學：https://doub.io/search/caddy
 
 ——————————————————————————————————————
 
-安装目录：/usr/local/ServerStatus
+安裝目錄：/usr/local/ServerStatus
 
-网页文件：/usr/local/ServerStatus/web
+網頁檔案：/usr/local/ServerStatus/web
 
-配置文件：/usr/local/ServerStatus/server/config.json
+設定檔案：/usr/local/ServerStatus/server/config.json
 
-客户端查看日志：tail -f tmp/serverstatus_client.log
+使用者端查看日誌：tail -f tmp/serverstatus_client.log
 
-服务端查看日志：tail -f /tmp/serverstatus_server.log
+服務端查看日誌：tail -f /tmp/serverstatus_server.log
 
-# 其他说明
+# 其他說明
 
-网络实时流量单位为：G=GB/s，M=MB/s，K=KB/s
+網路即時流量單位為：G=GB/s，M=MB/s，K=KB/s
 
-服务器总流量单位为：T=TB，G=GB，M=MB，K=KB
+伺服器總流量單位為：T=TB，G=GB，M=MB，K=KB
 
-### CentOS7系统 负载显示异常的问题
+### CentOS7系統 負載顯示異常的問題
 
-CentOS7系统 默认可能没有安装 netstat 依赖，所以会造成IP检测(负载)出错，手动安装即可：
+CentOS7系統 預設可能沒有安裝 netstat 依賴，所以會造成IP檢測(負載)出錯，手動安裝即可：
 `yum install net-tools -y `
 
-# 相关开源项目，感谢： 
+# 相關開源項目，感謝： 
 
 * ServerStatus：https://github.com/BotoX/ServerStatus
 * mojeda: https://github.com/mojeda 
